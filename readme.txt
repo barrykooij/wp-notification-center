@@ -1,0 +1,35 @@
+=== WP Notification Center ===
+Contributors: never5, barrykooij
+Donate link: http://www.barrykooij.com/donate/
+Tags: notificaton, notifications, notice, notices, admin notices, center, notification center
+Requires at least: 3.1
+Tested up to: 4.3
+Stable tag: 1.0.0
+License: GPL v2
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Adds a notification center to WordPress, no more pages that are cluttered with notifications.
+
+== Description ==
+
+Adds a notification center to WordPress, no more pages that are cluttered with notifications.
+
+We got quite some ideas for future version like being able to dismiss notifications from the notification center but we wanted to see how much demand there would be for this plugin first.
+
+== Installation ==
+
+1. Upload `wp-notification-center` to the `/wp-content/plugins/` directory
+2. Activate the plugin through the 'Plugins' menu in WordPress
+
+== Frequently Asked Questions ==
+
+= What PHP version is required for this plugin? =
+This plugin requires a minimum of PHP 5.3.
+
+== Screenshots ==
+Coming soon
+
+== Changelog ==
+
+= 1.0.0 : September 11, 2015 =
+* Initial Release
