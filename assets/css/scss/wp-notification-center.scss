@@ -1,0 +1,28 @@
+#wp-admin-bar-wp-notification-center {
+  .wpnc-count {
+    background-color: #0073aa;
+    border-radius: 50%;
+    color: #fff;
+    font-weight: bold;
+    padding: 2px 6px;
+    font-size: 0.85em;
+    margin-left: 5px;
+  }
+  ul.ab-submenu {
+    padding: 0;
+    &>li {
+      border-left: 4px solid #32373c;
+      padding: .8em .3em;
+
+      &.wpnc-updated {
+        border-color: #7ad03a;
+      }
+      &.wpnc-update-nag {
+        border-color: #ffba00;;
+      }
+      &.wpnc-error {
+        border-color: #dd3d36;
+      }
+    }
+  }
+}

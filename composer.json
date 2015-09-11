@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "psr-4": {"Never5\\WPNotificationCenter\\": "src/"}
+  },
+  "require": {
+    "wpupdatephp/wp-update-php": "~1.0"
+  }
+}
