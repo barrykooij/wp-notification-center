@@ -55,7 +55,7 @@ class Plugin extends Pimple\Container {
 			$plugin_links = new PluginLinks();
 			$plugin_links->setup();
 		}
-		
+
 	}
 
 	/**

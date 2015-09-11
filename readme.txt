@@ -27,7 +27,10 @@ We got quite some ideas for future version like being able to dismiss notificati
 This plugin requires a minimum of PHP 5.3.
 
 == Screenshots ==
-Coming soon
+
+1. What your WordPress admin notifications used to look like.
+
+2. What your WordPress admin notifications will look like when using our plugin.
 
 == Changelog ==
 
