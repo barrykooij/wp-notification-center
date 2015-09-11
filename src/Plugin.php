@@ -48,6 +48,10 @@ class Plugin extends Pimple\Container {
 		// setup admin bar
 		$admin_bar = new AdminBar();
 		$admin_bar->setup();
+
+		// setup plugin links
+		$plugin_links = new PluginLinks();
+		$plugin_links->setup();
 	}
 
 	/**
