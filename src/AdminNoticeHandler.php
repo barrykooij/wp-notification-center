@@ -20,20 +20,35 @@ class AdminNoticeHandler {
 	 * Catch WordPress default admin notices
 	 */
 	public function catch_admin_notices() {
-		add_action( 'in_admin_header', array( $this, 'parse_admin_notices' ), - 1 );
+		add_action( 'in_admin_header', array( $this, 'catch_notices' ), - 1 );
 	}
 
 	/**
 	 * Parse WordPress admin notices, hooked into in_admin_header
 	 */
-	public function parse_admin_notices() {
+	public function catch_notices() {
 		global $wp_filter;
 
+		// parse default 'admin_notices'
+		$this->parse_notices( $wp_filter['admin_notices'] );
+
+		// parse default 'all_admin_notices'
+		$this->parse_notices( $wp_filter['all_admin_notices'] );
+
+	}
+
+	/**
+	 * @param array &$collection
+	 *
+	 * $collection is passed as pointer because we need to be able to remove entries from original GLOBAL array (yah globals)
+	 */
+	private function parse_notices( &$collection ) {
+
 		// check if there are notices
-		if ( isset( $wp_filter['admin_notices'] ) ) {
+		if ( isset( $collection ) ) {
 
 			// loop through priorities
-			foreach ( $wp_filter['admin_notices'] as $priority => $admin_notice_group ) {
+			foreach ( $collection as $priority => $admin_notice_group ) {
 
 				// loop through actions of this priority
 				foreach ( (array) $admin_notice_group as $notice_key => $action ) {
@@ -79,7 +94,7 @@ class AdminNoticeHandler {
 										$this->notices[] = new Notification( $types, $message );
 
 										// remove admin notice
-										unset( $wp_filter['admin_notices'][ $priority ][ $notice_key ] );
+										unset( $collection[ $priority ][ $notice_key ] );
 
 									}
 
@@ -92,6 +107,7 @@ class AdminNoticeHandler {
 			}
 
 		}
+
 	}
 
 }
