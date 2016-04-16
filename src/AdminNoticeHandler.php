@@ -32,7 +32,6 @@ class AdminNoticeHandler {
 		// check if there are notices
 		if ( isset( $wp_filter['admin_notices'] ) ) {
 
-
 			// loop through priorities
 			foreach ( $wp_filter['admin_notices'] as $priority => $admin_notice_group ) {
 
@@ -48,23 +47,43 @@ class AdminNoticeHandler {
 						$output = trim( ob_get_clean() );
 
 						// the regex
-						$regexp = "`<div class=\"([^\"]+)\">(.*)</div>`is";
+						$regexp = "`<div([^<>]*)>(.*)</div>`is";
 
 						// do preg match
 						if ( false !== preg_match_all( $regexp, $output, $matches ) ) {
+
+							/**
+							 * 0 = FULL STRING
+							 * 1 = ATTRIBUTES
+							 * 2 = CONTENT
+							 */
+
 							if ( count( $matches[0] ) > 0 ) {
 
-								// notification types
-								$types = explode( ' ', $matches[1][0] );
+								// fetch class attribute values from all attributes
+								$class_regexp = '`class=\"([^\"]+)\"`iS';
 
-								// notification message
-								$message = trim( strip_tags( $matches[2][0], '' ) );
+								// regex on class values
+								if ( false !== preg_match_all( $class_regexp, $matches[1][0], $class_values ) ) {
 
-								// add to notices
-								$this->notices[] = new Notification( $types, $message );
+									// check if we got results
+									if ( count( $class_values[0] ) > 0 ) {
 
-								// remove admin notice
-								unset( $wp_filter['admin_notices'][$priority][ $notice_key ] );
+										// notification types
+										$types = explode( ' ', $class_values[1][0] );
+
+										// notification message
+										$message = trim( strip_tags( $matches[2][0], '' ) );
+
+										// add to notices
+										$this->notices[] = new Notification( $types, $message );
+
+										// remove admin notice
+										unset( $wp_filter['admin_notices'][ $priority ][ $notice_key ] );
+
+									}
+
+								}
 
 							}
 						}
