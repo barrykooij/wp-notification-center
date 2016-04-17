@@ -88,7 +88,7 @@ class AdminNoticeHandler {
 										$types = explode( ' ', $class_values[1][0] );
 
 										// notification message
-										$message = trim( strip_tags( $matches[2][0], '' ) );
+										$message = trim( strip_tags( $matches[2][0], '<a>' ) );
 
 										// add to notices
 										$this->notices[] = new Notification( $types, $message );
