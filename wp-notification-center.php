@@ -3,7 +3,7 @@
 	Plugin Name: WP Notification Center
 	Plugin URI: http://www.never5.com/
 	Description: Adds a notification center to WordPress, no more pages that are cluttered with notifications
-	Version: 1.0.0
+	Version: 1.0.1
 	Author: Never5
 	Author URI: http://www.never5.com/
 	License: GPL v2
@@ -41,7 +41,7 @@ function wp_notification_center() {
 
 	static $instance;
 	if ( is_null( $instance ) ) {
-		$instance = new \Never5\WPNotificationCenter\Plugin( '1.0.0', __FILE__ );
+		$instance = new \Never5\WPNotificationCenter\Plugin( '1.0.1', __FILE__ );
 	}
 
 	return $instance;

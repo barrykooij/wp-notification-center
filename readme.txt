@@ -3,8 +3,8 @@ Contributors: never5, barrykooij
 Donate link: http://www.barrykooij.com/donate/
 Tags: notificaton, notifications, notice, notices, admin notices, center, notification center
 Requires at least: 3.1
-Tested up to: 4.3
-Stable tag: 1.0.0
+Tested up to: 4.5
+Stable tag: 1.0.1
 License: GPL v2
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,6 +33,11 @@ This plugin requires a minimum of PHP 5.3.
 2. What your WordPress admin notifications will look like when using our plugin.
 
 == Changelog ==
+
+= 1.0.1 : April 18, 2016 =
+* Tweak: We're now allowing links in notifications.
+* Tweak: We're now also catching 'all_admin_notices'.
+* Tweak: Notifications now have a maximum height and are scrollable.
 
 = 1.0.0 : September 11, 2015 =
 * Initial Release
